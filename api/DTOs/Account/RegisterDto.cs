@@ -11,6 +11,10 @@ namespace api.DTOs.Account
         [Required]
         public string? Username { get; set; }
         [Required]
+        public string? FirstName { get; set; }
+        [Required]
+        public string? LastName { get; set; }
+        [Required]
         [EmailAddress]
         public string? Email { get; set; }
         [Required]
@@ -20,6 +24,11 @@ namespace api.DTOs.Account
         [Required]
         public string? Bio { get; set; }
         [Required]
+        public string? ProfilePicture { get; set; }
+        [Required]
+        public bool IsAvailableForSession { get; set; } = true;
+        [Required]
+        public DateTime DateOfBirth { get; set; }
         public List<int>? ExpertiseIds { get; set; }
     }
 }

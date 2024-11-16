@@ -51,19 +51,19 @@ namespace api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "21d03761-8a11-4169-bfce-64a23337aa75",
+                            Id = "97830cd0-9715-47d9-84b1-8667edd2b2c4",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "27a2392c-4cc4-4f3b-b239-76fcdaf492b5",
+                            Id = "55e9de4a-af73-4e32-94a6-954207297588",
                             Name = "Mentor",
                             NormalizedName = "MENTOR"
                         },
                         new
                         {
-                            Id = "a5a53e67-146b-4c63-aec8-e654a5fd4937",
+                            Id = "5398cdf7-f59c-461c-b7db-895c63902b83",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         });
@@ -300,6 +300,9 @@ namespace api.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -307,7 +310,14 @@ namespace api.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsAvailableForSession")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -333,6 +343,9 @@ namespace api.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("ProfilePicture")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Role")
                         .IsRequired()

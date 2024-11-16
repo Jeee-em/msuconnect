@@ -5,12 +5,16 @@ namespace api.Models
 {
     public class User : IdentityUser
     {
+        public string? FirstName { get; set; } = string.Empty;
+        public string? LastName { get; set; } = string.Empty;
+        public string? FullName => $"{FirstName} {LastName}";
+        public string? Role { get; set; } = string.Empty;
+        public string? Bio { get; set; } = string.Empty;
+        public string? ProfilePicture { get; set; }
+        public bool IsAvailableForSession { get; set; } = true;
+        public DateTime DateOfBirth { get; set; }
 
-        public string FullName { get; set; } = string.Empty;
-        public string Role { get; set; } = string.Empty;
-        public string Bio { get; set; } = string.Empty;
-
-        public List<Subject> Expertise { get; set; } = new List<Subject>();
+        public List<Subject?> Expertise { get; set; } = new List<Subject?>();
         public List<Session> Sessions { get; set; } = new List<Session>();
     }
 
